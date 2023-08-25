@@ -1,0 +1,34 @@
+#Test 7
+CREATE families 4 string double bool int name members nuclear? kids
+INSERT INTO families 1 ROWS
+Smiths 4 true 2
+GENERATE FOR families bst INDEX ON name
+CREATE truthvals 1 bool true?
+INSERT INTO truthvals 3 ROWS
+true
+true
+true
+PRINT FROM families 3 name members kids WHERE nuclear? = true
+PRINT FROM families 3 name members kids WHERE kids > 0
+PRINT FROM families 3 name members kids WHERE kids < 1
+PRINT FROM families 3 name members kids WHERE members > 0
+JOIN families AND truthvals WHERE nuclear? = true? AND PRINT 3 name 1 members 1 kids 1
+INSERT INTO families 1 ROWS
+Smiths 4 true 2
+PRINT FROM families 4 name members nuclear? kids ALL
+INSERT INTO truthvals 1 ROWS
+false
+GENERATE FOR truthvals hash INDEX ON true?
+DELETE FROM truthvals WHERE true? = true
+DELETE FROM families WHERE kids > 2
+DELETE FROM families WHERE kids < 2
+DELETE FROM families WHERE kids = 2
+JOIN families AND truthvals WHERE nuclear? = true? AND PRINT 5 name 1 members 1 kids 1 nuclear? 1 true? 2
+INSERT INTO families 2 ROWS
+Bakers 7 false 3
+Jones 2 false 0 
+PRINT FROM families 4 name members nuclear? kids WHERE name = Smiths 
+PRINT FROM families 4 name members nuclear? kids WHERE name < Smiths
+REMOVE families
+REMOVE truthvals
+QUIT

@@ -1,0 +1,38 @@
+#Test 2
+CREATE newtable 3 string double bool name networth student
+INSERT INTO newtable 3 ROWS
+John 49.01 true
+Jessica 110000 false
+Mitch 450000 true
+PRINT FROM newtable 2 name networth WHERE student = true
+DELETE FROM newtable WHERE networth > 49.01
+PRINT FROM newtable 3 name networth student WHERE networth > 49.01
+CREATE oldtable 4 string double double double name dogs siblings parents
+INSERT INTO oldtable 3 ROWS
+John 49.01 3 2
+Jessica 110000 450000 2
+Mitchy 49.01 3 2
+JOIN newtable AND oldtable WHERE networth = siblings AND PRINT 4 name 2 name 1 student 1 networth 1
+JOIN oldtable AND newtable WHERE name = name AND PRINT 2 name 2 siblings 1
+JOIN newtable AND oldtable WHERE networth = dogs AND PRINT 4 name 2 name 1 student 1 networth 1
+JOIN newtable AND oldtable WHERE networth = parents AND PRINT 5 name 2 name 1 student 1 networth 1 parents 2
+INSERT INTO newtable 2 ROWS
+Jamie 380000 false
+Maria 20000 true
+JOIN newtable AND oldtable WHERE networth = parents AND PRINT 5 shame 2 name 1 student 1 networth 1 parents 2
+JOIN newtable AND oldtable WHERE networth = parents AND PRINT 5 name 2 name 1 student 1 networth 1 shparents 2
+PRINT FROM newtable 3 name networth student ALL
+DELETE FROM newtable WHERE name > Alex
+PRINT FROM newtable 3 name networth student ALL
+GENERATE FOR newtable hash INDEX ON name
+GENERATE FOR notable hash INDEX ON name
+GENERATE FOR newtable bst INDEX ON schname
+GENERATE FOR oldtable hash INDEX ON schname
+GENERATE FOR oldtable bst INDEX ON name
+JOIN oldtable AND newtable WHERE name = name AND PRINT 2 name 2 siblings 1
+JOIN newtable AND oldtable WHERE name = name AND PRINT 2 name 2 siblings 1
+INSERT INTO newtable 1 ROWS
+Marissa 10000 true
+PRINT FROM newtable 2 name student WHERE networth > 10000
+REMOVE newtable
+QUIT

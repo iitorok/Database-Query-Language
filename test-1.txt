@@ -1,0 +1,46 @@
+#Test 6
+CREATE emptytab 3 string double bool job salary need_car?
+PRINT FROM emptytab 2 job salary ALL
+SHRINT FROM emptytab 2 job salary ALL
+GENERATE FOR emptytab hash INDEX ON salary
+INSERT INTO emptytab 10 ROWS
+doctor 100000 true
+lawyer 90000 true
+surgeon 120000 true
+cashier 20000 true
+influencer 3000000 false
+lawyer 7000 false
+doctor 78000 true
+cashier 670000 true
+influencer 1.7 true
+dogwalker 10 false
+PRINT FROM emptytab 2 job salary ALL
+PRINT FROM emptytab 2 job salary WHERE salary > 0
+PRINT FROM emptytab 2 job salary WHERE salary < 1
+PRINT FROM emptytab 2 job salary WHERE salary > 10000
+GENERATE FOR emptytab bst INDEX ON job
+PRINT FROM emptytab 3 job salary need_car? WHERE job > airplane
+PRINT FROM emptytab 3 job salary need_car? WHERE job < marble
+PRINT FROM emptytab 3 job salary need_car? WHERE job = doctor
+DELETE FROM emptytab WHERE salary > 100000
+PRINT FROM emptytab 1 job WHERE need_car? = true
+CREATE fulltab 3 string double bool name pets student?
+GENERATE FOR fulltab hash INDEX ON pets
+INSERT INTO fulltab 2 ROWS
+Frida 7 true
+Mark 2 true
+DELETE FROM fulltab WHERE pets > 10
+DELETE FROM fulltab WHERE student? = false
+JOIN emptytab AND fulltab WHERE need_car? = student? AND PRINT 3 job 1 pets 2 name 2
+JOIN emptytab AND fulltab WHERE salary = pets AND PRINT 3 job 1 pets 2 name 2
+JOIN emptytab AND fulltab WHERE job = name AND PRINT 3 job 1 pets 2 name 2
+JOIN fulltab AND emptytab WHERE pets = salary AND PRINT 3 job 1 pets 2 name 2
+PRINT FROM fulltab 2 name pets WHERE pets > 1
+PRINT FROM fulltab 2 name pets ALL
+GENERATE FOR fulltab bst INDEX ON pets
+INSERT INTO fulltab 2 ROWS
+Mira 0 true
+Peter 87 false
+JOIN emptytab AND fulltab WHERE need_car? = student? AND PRINT 3 job 1 pets 2 name 2
+REMOVE emptytab
+QUIT
