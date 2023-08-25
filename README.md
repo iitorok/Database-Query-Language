@@ -1,10 +1,14 @@
 # Database-Query-Language
 Developed a database system that stores user input and reacts to commands given accordingly. For example, if the user types "CREATE <table name> <column number> <column type n>(types for however many columns specified) <column name n>, the program will create a new table with the information specified using an unordered map or a map depending on the usage. The unordered map acts as a hash table and the map acts as a binary search tree ADT.
 The database takes in several commands:
+
 CREATE: creates a new table. Example: CREATE emptytable 3 string double bool job salary need_car?
+
 INSERT INTO: inserts data taking into account the column types previously created. Takes in a tablename and number of rows.
             Ex: INSERT INTO emptytab 2 ROWS
+            
             doctor 100000 true
+            
             lawyer 90000 true
 
 PRINT FROM: takes in a table name, number of columns, and either a comparison or ALL. Ex: PRINT FROM emptytable 2 job salary ALL
