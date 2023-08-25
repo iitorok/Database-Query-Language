@@ -20,4 +20,5 @@ JOIN: takes in two table names and prints columns where condition is met in both
     Note: the default format of JOIN is as follows: JOIN <tablename1> AND <tablename2> WHERE <colname1> = <colname2> AND PRINT <number of columns printed> <colname1> <tablenumber where column name is found> <columname2> <tablenumber where column name is found> (table number corresponds to the order in which the table numbers are inputted.)
 
 REMOVE: deletes a table and its data entirely. Ex: REMOVE emptytable
+
 QUIT: quits the program. Ex: QUIT
